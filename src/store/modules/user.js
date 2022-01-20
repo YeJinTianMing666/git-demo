@@ -2,7 +2,7 @@
 
 export default {
   namespaced: true,
-  state () {
+  state: () => {
     return {
       // 用来存储用户信息，与后台保持一致
       profile: {
@@ -11,8 +11,13 @@ export default {
         nickname: '',
         account: '',
         mobile: '',
-        token: ''
+        token: 10000
       }
+    }
+  },
+  mutations: {
+    setUser (state, payload) {
+      state.profile = payload
     }
   }
 }

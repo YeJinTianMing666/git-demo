@@ -1,74 +1,22 @@
+// eslint-disable-next-line no-unused-vars
 import { createStore } from 'vuex'
+import CreatePersistedState from 'vuex-persistedstate'
+import cart from '@/store/modules/cart'
+import user from '@/store/modules/user'
+import catergory from '@/store/modules/catergory'
 
-// eslint-disable-next-line no-unused-vars
-const ModelA = {
-  // 不用命名空间 , 会被放到全局
-  state: {
-    username: 'ma'
-  },
-  getters: {
-    newName (state) {
-      return state.username + '!'
-    }
-  },
-  mutations: {
-    updateName (state) {
-      state.username = 'ModelAAA'
-    }
-  }
-}
-
-// eslint-disable-next-line no-unused-vars
-const ModelB = {
-  namespaced: true,
-  state: {
-    username: 'mb'
-  },
-  getters: {
-    newName (state) {
-      return state.username + '!'
-    }
-  },
-  mutations: {
-    updateName (state) {
-      state.username = 'ModelBBB'
-    }
-  },
-  actions: {
-    updateName: function (ctx) {
-      // 发请求
-      setTimeout(() => {
-        ctx.commit('updateName')
-      }, 1000)
-    }
-  }
-}
 export default createStore({
-  modules: { ModelA, ModelB }
+  modules: {
+    cart,
+    user,
+    catergory
+  },
+  plugins: [CreatePersistedState({
+    // 默认存储在 locastage
+    // 本地存储的名字
+    key: 'erabbit-client-pc-store',
+    // 指定需要存储的模块
+    path: ['user', 'cart']
+  })
+  ]
 })
-// 创建仓库 createStore 函数
-// export default createStore({
-//   state: {
-//     username: 'zs'
-//   },
-//   getters: {
-//     newName (state) {
-//       return state.username
-//     }
-//   },
-//   mutations: {
-//     updateName (state) {
-//       state.username = 'ls'
-//     }
-//   },
-//   actions: {
-//     updateName: function (ctx) {
-//       // 发请求
-//       setTimeout(() => {
-//         ctx.commit('updateName')
-//       }, 1000)
-//     }
-//   },
-//   modules: {
-//   }
-// })
