@@ -4,7 +4,7 @@ export default {
   namespaced: true,
   state () {
     return {
-      // 用户信息
+      // 用来存储用户信息，与后台保持一致
       profile: {
         id: '',
         avatar: '',
