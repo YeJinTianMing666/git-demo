@@ -1,5 +1,4 @@
 // 用户模块
-
 export default {
   namespaced: true,
   state: () => {
@@ -11,7 +10,7 @@ export default {
         nickname: '',
         account: '',
         mobile: '',
-        token: 10000
+        token: ''
       }
     }
   },

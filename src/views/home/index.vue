@@ -12,8 +12,8 @@ export default {
 </script>
 
 <style scoped  lang="less">
-@import "../../assets/styles/mixins";
 .container{
   .hoverShadow();
+  background-color: @xtxColor;
 }
 </style>
