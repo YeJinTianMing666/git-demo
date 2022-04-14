@@ -1,4 +1,4 @@
-<template>
+﻿<template>
 <!--  顶部通栏-->
   <!-- 吸顶组件 -->
   <AppHeaderSticky/>
@@ -22,6 +22,7 @@ import AppHeaderSticky from '@/components/app-header-sticky'
 import { useStore } from 'vuex'
 export default {
   name: 'Layout',
+
   components: {
     AppNavbar,
     AppHeader,
