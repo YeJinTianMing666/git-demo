@@ -9,11 +9,11 @@ import store from '@/store'
 import router from '@/router'
 
 // 导出基准地址， 其他地方不是通过axis发送请求的
-export const baseURL = 'http://pcapi-xiaotuxian-front-devtest.itheima.net/'
+export const baseURL = 'https://apipc-xiaotuxian-front.itheima.net/'
 const instance = axios.create({
   // axiso的配置
   baseURL: baseURL,
-  timeout: 1000
+  timeout: 30000
 })
 
 instance.interceptors.request.use(config => {
@@ -54,6 +54,6 @@ export default (url, method, submitData) => {
     // get ,s使用 params 传参 ?a=b&c=10
     // 非get用 data 传递
     // [] 设置一个动态key ， 写JS 表达式 ， 表达式的结果用作key
-    [method.toLowerCase() === 'get' ? 'param' : 'data']: submitData
+    [method.toLowerCase() === 'get' ? 'params' : 'data']: submitData
   })
 }
